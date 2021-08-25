@@ -18,6 +18,7 @@ public enum CollectionResultsChangeType {
 
     ///
     case snapshot
+
 }
 
 ///
@@ -31,10 +32,11 @@ public enum CollectionResultsEvent {
     case snapshot(NSDiffableDataSourceSnapshotReference)
 #endif
 
-    case indexes(ChangedIndexes)
+    case indexes(ChangedIndices)
 
     ///
     case did
+
 }
 
 /// A type that provides access to the collection of result elements

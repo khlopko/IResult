@@ -10,6 +10,6 @@ public protocol SingleResult {
 
     var changePublisher: PassthroughSubject<ElementChangeType, Never> { get }
 
-    var element: Element { get }
+    var element: Element? { get }
     
 }

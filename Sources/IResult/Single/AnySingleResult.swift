@@ -10,7 +10,7 @@ public struct AnySingleResult<T>: SingleResult {
 
     public var changePublisher: PassthroughSubject<ElementChangeType, Never> { box.changePublisher }
 
-    public var element: Element { box.element }
+    public var element: Element? { box.element }
     public let box: AnySingleResultBase<Element>
 
     public init<R>(_ concrete: R) where R: SingleResult, R.Element == Element {
@@ -25,6 +25,6 @@ open class AnySingleResultBase<T>: SingleResult {
 
     public var changePublisher: PassthroughSubject<ElementChangeType, Never> { fatalError() }
 
-    public var element: Element { fatalError() }
+    public var element: Element? { fatalError() }
 
 }

@@ -1,11 +1,11 @@
 //
-//  ChangedIndexes.swift
+//  ChangedIndices.swift
 //
 
 import Foundation
 
 ///
-public struct ChangedIndexes {
+public struct ChangedIndices {
 
     ///
     public struct Snapshot {

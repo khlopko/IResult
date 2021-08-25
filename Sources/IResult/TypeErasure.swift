@@ -66,7 +66,7 @@ open class AnySingleResultBox<R>: AnySingleResultBase<R.Element> where R: Single
 
     public override var changePublisher: PassthroughSubject<ElementChangeType, Never> { concrete.changePublisher }
 
-    public override var element: Element { concrete.element }
+    public override var element: Element? { concrete.element }
     public let concrete: R
 
     public init(_ concrete: R) {
