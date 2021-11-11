@@ -2,45 +2,11 @@
 //  CollectionResults.swift
 //
 
-#if canImport(UIKit)
-import UIKit
-#elseif canImport(AppKit)
-import AppKit
-#endif
 import Foundation
 import Combine
 
-///
-public enum CollectionResultsChangeType {
-
-    ///
-    case indexes
-
-    ///
-    case snapshot
-
-}
-
-///
-public enum CollectionResultsEvent {
-
-    ///
-    case will
-
-#if canImport(UIKit) || canImport(AppKit)
-    ///
-    case snapshot(NSDiffableDataSourceSnapshotReference)
-#endif
-
-    case indexes(ChangedIndices)
-
-    ///
-    case did
-
-}
-
 /// A type that provides access to the collection of result elements
-public protocol CollectionResults {
+public protocol CollectionResults: RandomAccessCollection {
 
     /// A type that represents a position in the collection.
     typealias Index = IndexPath
@@ -48,11 +14,11 @@ public protocol CollectionResults {
     /// A type representing collection's element.
     associatedtype Element
 
-    /// A type of change used in `CollectionResultsEvent`.
-    var changeType: CollectionResultsChangeType { get }
+    ///
+    associatedtype ChangeEvent
 
     /// A Combine publisher, which publishes collection events.
-    var changePublisher: PassthroughSubject<CollectionResultsEvent, Never> { get }
+    var changePublisher: PassthroughSubject<ChangeEvent, Never> { get }
 
     /// A Boolean value indicating whether the collection is empty.
     var isEmpty: Bool { get }
